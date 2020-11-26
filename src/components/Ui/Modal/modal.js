@@ -4,17 +4,20 @@ import Aux from "../../../hoc/Auxiliary/Auxiliary";
 import Backdrop from "../Backdrop/Backdrop";
 class Modal extends Component {
   shouldComponentUpdate(nextProps, nextState) {
-    return nextProps.show !== this.props.show;
+    return (
+      nextProps.show !== this.props.show ||
+      nextProps.children !== this.props.children
+    );
   }
 
-  componentDidUpdate() {
-    console.log("[Modal.js] componentDidUpdate");
-  }
+  // componentDidUpdate() {
+  //   console.log("[Modal.js] componentDidUpdate");
+  // }
 
   render() {
     return (
       <Aux>
-        <Backdrop show={this.props.show} modalClosed={this.props.modalClosed} />
+        <Backdrop show={this.props.show} closed={this.props.closed} />
         <div
           className={cssClasses.Modal}
           style={{
