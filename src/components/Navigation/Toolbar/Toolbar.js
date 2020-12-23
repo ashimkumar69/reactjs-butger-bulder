@@ -10,7 +10,7 @@ const toollbar = (props) => (
       <Logo />
     </div>
     <nav className={cssClasses.DesktopOnly}>
-      <NavigationItems />
+      <NavigationItems isAuthenticated={props.isAuth} />
     </nav>
   </header>
 );
